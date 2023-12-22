@@ -1,32 +1,33 @@
-class BubbleSort 
-{
-	public static void main(String args[])
+package SortingAlgorithm;
+
+import java.util.Arrays;
+
+public class BubbleSort {
+
+	public static void main(String[] args) {
+		int [] arr = {10,6,12,8,3,1};
+		System.out.println("Before Sort :"+Arrays.toString(arr));
+		afterBubbleSort(arr);
+		System.out.println("After Sort :"+Arrays.toString(arr));
+	}
+	public static void afterBubbleSort(int [] arr)
 	{
-		int [] arr = new int [] { 1,5,7,8,9,10,44,12,45};
-		int temp ;
-		for(int i= 0 ; i<arr.length ; i++)
+		int n = arr.length ; 
+		for(int i=0 ; i<n ;i++)
 		{
-			int swap = 0 ;
-			for(int j=0 ; j<arr.length-1-i ; j++)
+			boolean swapFlag = false ;
+			for(int j=0 ; j<n-1-i ; j++)
 			{
-				if(arr[j] > arr[j+1])
+				if(arr[j]>arr[j+1])
 				{
-					temp = arr[j] ;
-					arr[j] = arr[j+1] ;
+					int temp = arr[j];
+					arr[j] = arr[j+1];
 					arr[j+1] = temp ;
-					swap = 1;
+					swapFlag = true ;
 				}
 			}
-			if(swap == 0 )
-			{
-				break ;
-			}
+			if(!swapFlag)
+				break ; 
 		}
-		System.out.print("Sorted Array : ");
-		for(int i=0 ;i<arr.length ; i++)
-		{
-			System.out.print(arr[i]+" ");	
-		}
-		System.out.println("Second Highest Array Element :"+arr[arr.length - 2]);
 	}
 }
